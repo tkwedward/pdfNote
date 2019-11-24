@@ -1,0 +1,288 @@
+body {
+    overflow-y: hidden;
+    height:100vh;
+}
+.mode {
+    position: fixed;
+    background: white;
+    left: 95%;
+    top: 95%;
+}
+
+.counterContainer{
+    position: fixed;
+    height: 60px;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background: SteelBlue;
+    padding: 10px;
+    z-index: 100;
+    .counter{
+        display: inline-block;
+        width: 48px;
+        padding: 10px;
+        background: LightBlue;
+        border: 3px solid red;
+        border-radius: 50px;
+        span{
+            pointer-events: none;
+        }
+
+    }
+    .counter.selected{
+        background: yellow;
+    }
+}
+
+.functionButton{
+    display: inline-block;
+
+    .functionSecondLine{
+        position: relative;
+        top: 10px;
+    }
+}
+
+$containerHeight: 92vh;
+#pageWrapper{
+    position: relative;
+    overflow-y: scroll;
+    top: 54px;
+    left: 0;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+
+
+    .noteContainer{
+        background-color: Olive;
+        height: $containerHeight;
+        width: 100%;
+        overflow-y: scroll;
+
+
+        .noteInfo, .saveButton{
+            margin: 8px;
+        }
+
+
+        img{
+            margin: 20px 0px;
+            width: 100%;
+        }
+
+        .cell.sectionTitle  {
+            h2 {
+                text-align: center;
+                font-size: 35px;
+            }
+
+            button.sectionTitle {
+                background: yellow;
+            }
+        }
+
+        .cell, .selectedCell{
+            width: 95%;
+            margin: 40px auto;
+            background: BurlyWood;
+            padding: 10px;
+            .cellTitle {
+                margin: 10px
+            }
+
+
+            .annotationControlPanel{
+                margin: 5px 28px;
+            }
+            .annotationContent{
+                background-color: wheat;
+                min-height: 10vh;
+                margin: 10px auto;
+                padding: 8px;
+                width: 90%;
+                font-size: 20px;
+                input {
+                    display: block;
+                }
+
+                .useful.addToUseful{
+                    background: yellow;
+                }
+
+                .latexChildCell{
+                    margin-top: 10px;
+                    min-height: 30px;
+                    * {
+                        pointer-events: none;
+
+                    }
+                }
+            }
+
+            .annotation:focus{
+                background-color: white;
+            }
+        }
+
+        .selectedCell{
+            border: 2px red solid;
+        }
+    }
+
+
+    .pdfContainer{
+        background-color: RosyBrown;
+        min-height: $containerHeight;
+        width: 100%;
+        overflow-y: scroll;
+        position: relative;
+        .pdfImageContainer{
+            position: relative;
+            img {
+                position: relative;
+                width: 100%;
+                left: 0;
+                top: 100px;
+            }
+        }
+
+        #pdf-page{
+            width: 30px;
+        }
+
+
+        .copyNoteContainer{
+            display: none;
+            height: 90vh;
+            overflow-y: scroll;
+            z-index: 100;
+            background: blue;
+            position: absolute;
+            top: 0px;
+            width: 100%;
+        }
+
+        .noteCardContainer{
+            display: none;
+            height: 90vh;
+            overflow-y: scroll;
+            .sectionLabel{
+                padding: 10px;
+                font-size: 25px;
+                cursor: pointer;
+            }
+
+            .subTitleLabel{
+
+                display: block;
+                margin-left: 30px;
+                font-size: 20px;
+            }
+        }
+
+    }
+
+
+}
+
+
+.copyCell{
+    width: 95%;
+    margin: 40px auto;
+    background: BurlyWood;
+    padding: 10px;
+
+    .cellTitle {
+        margin: 10px
+    }
+
+    img{
+        margin: 20px 0px;
+        width: 100%;
+    }
+
+    .annotationControlPanel{
+        margin: 5px 28px;
+    }
+    .annotationContent{
+        background-color: wheat;
+        min-height: 10vh;
+        margin: 10px auto;
+        padding: 8px;
+        width: 90%;
+        font-size: 20px;
+        input {
+            display: block;
+        }
+
+        .useful.addToUseful{
+            background: yellow;
+        }
+
+        .latexChildCell{
+            margin-top: 10px;
+            min-height: 30px;
+            * {
+                pointer-events: none;
+
+            }
+        }
+    }
+
+    .annotation:focus{
+        background-color: white;
+    }
+}
+
+
+.controlPannel{
+    position: absolute;
+    top: 20px;
+    z-index: 100;
+}
+
+.canvasContainer{
+    position: relative;
+    max-height: $containerHeight;
+    overflow-y: scroll;
+    width:100%;
+    canvas{
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .textLayer {
+       position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        /* opacity: 0.1; */
+        line-height: 1.0;
+        /* background: rgba(1, 1, 1, 0.2) */
+    }
+
+    .textLayer > div {
+        color: transparent;
+        position: absolute;
+        white-space: pre;
+        cursor: text;
+        transform-origin: 0% 0%;
+    }
+
+}
+.canvasBottomLine{
+    // background: green
+}
+.line{
+    height: 20px;
+    width: 100%;
+    // background: red;
+    position: absolute;
+    z-index: 100;
+
+}

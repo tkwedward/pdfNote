@@ -1,0 +1,193 @@
+body {
+  overflow-y: hidden;
+  height: 100vh; }
+
+.mode {
+  position: fixed;
+  background: white;
+  left: 95%;
+  top: 95%; }
+
+.counterContainer {
+  position: fixed;
+  height: 60px;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background: SteelBlue;
+  padding: 10px;
+  z-index: 100; }
+  .counterContainer .counter {
+    display: inline-block;
+    width: 48px;
+    padding: 10px;
+    background: LightBlue;
+    border: 3px solid red;
+    border-radius: 50px; }
+    .counterContainer .counter span {
+      pointer-events: none; }
+  .counterContainer .counter.selected {
+    background: yellow; }
+
+.functionButton {
+  display: inline-block; }
+  .functionButton .functionSecondLine {
+    position: relative;
+    top: 10px; }
+
+#pageWrapper {
+  position: relative;
+  overflow-y: scroll;
+  top: 54px;
+  left: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+  #pageWrapper .noteContainer {
+    background-color: Olive;
+    height: 92vh;
+    width: 100%;
+    overflow-y: scroll; }
+    #pageWrapper .noteContainer .noteInfo, #pageWrapper .noteContainer .saveButton {
+      margin: 8px; }
+    #pageWrapper .noteContainer img {
+      margin: 20px 0px;
+      width: 100%; }
+    #pageWrapper .noteContainer .cell.sectionTitle h2 {
+      text-align: center;
+      font-size: 35px; }
+    #pageWrapper .noteContainer .cell.sectionTitle button.sectionTitle {
+      background: yellow; }
+    #pageWrapper .noteContainer .cell, #pageWrapper .noteContainer .selectedCell {
+      width: 95%;
+      margin: 40px auto;
+      background: BurlyWood;
+      padding: 10px; }
+      #pageWrapper .noteContainer .cell .cellTitle, #pageWrapper .noteContainer .selectedCell .cellTitle {
+        margin: 10px; }
+      #pageWrapper .noteContainer .cell .annotationControlPanel, #pageWrapper .noteContainer .selectedCell .annotationControlPanel {
+        margin: 5px 28px; }
+      #pageWrapper .noteContainer .cell .annotationContent, #pageWrapper .noteContainer .selectedCell .annotationContent {
+        background-color: wheat;
+        min-height: 10vh;
+        margin: 10px auto;
+        padding: 8px;
+        width: 90%;
+        font-size: 20px; }
+        #pageWrapper .noteContainer .cell .annotationContent input, #pageWrapper .noteContainer .selectedCell .annotationContent input {
+          display: block; }
+        #pageWrapper .noteContainer .cell .annotationContent .useful.addToUseful, #pageWrapper .noteContainer .selectedCell .annotationContent .useful.addToUseful {
+          background: yellow; }
+        #pageWrapper .noteContainer .cell .annotationContent .latexChildCell, #pageWrapper .noteContainer .selectedCell .annotationContent .latexChildCell {
+          margin-top: 10px;
+          min-height: 30px; }
+          #pageWrapper .noteContainer .cell .annotationContent .latexChildCell *, #pageWrapper .noteContainer .selectedCell .annotationContent .latexChildCell * {
+            pointer-events: none; }
+      #pageWrapper .noteContainer .cell .annotation:focus, #pageWrapper .noteContainer .selectedCell .annotation:focus {
+        background-color: white; }
+    #pageWrapper .noteContainer .selectedCell {
+      border: 2px red solid; }
+  #pageWrapper .pdfContainer {
+    background-color: RosyBrown;
+    min-height: 92vh;
+    width: 100%;
+    overflow-y: scroll;
+    position: relative; }
+    #pageWrapper .pdfContainer .pdfImageContainer {
+      position: relative; }
+      #pageWrapper .pdfContainer .pdfImageContainer img {
+        position: relative;
+        width: 100%;
+        left: 0;
+        top: 100px; }
+    #pageWrapper .pdfContainer #pdf-page {
+      width: 30px; }
+    #pageWrapper .pdfContainer .copyNoteContainer {
+      display: none;
+      height: 90vh;
+      overflow-y: scroll;
+      z-index: 100;
+      background: blue;
+      position: absolute;
+      top: 0px;
+      width: 100%; }
+    #pageWrapper .pdfContainer .noteCardContainer {
+      display: none;
+      height: 90vh;
+      overflow-y: scroll; }
+      #pageWrapper .pdfContainer .noteCardContainer .sectionLabel {
+        padding: 10px;
+        font-size: 25px;
+        cursor: pointer; }
+      #pageWrapper .pdfContainer .noteCardContainer .subTitleLabel {
+        display: block;
+        margin-left: 30px;
+        font-size: 20px; }
+
+.copyCell {
+  width: 95%;
+  margin: 40px auto;
+  background: BurlyWood;
+  padding: 10px; }
+  .copyCell .cellTitle {
+    margin: 10px; }
+  .copyCell img {
+    margin: 20px 0px;
+    width: 100%; }
+  .copyCell .annotationControlPanel {
+    margin: 5px 28px; }
+  .copyCell .annotationContent {
+    background-color: wheat;
+    min-height: 10vh;
+    margin: 10px auto;
+    padding: 8px;
+    width: 90%;
+    font-size: 20px; }
+    .copyCell .annotationContent input {
+      display: block; }
+    .copyCell .annotationContent .useful.addToUseful {
+      background: yellow; }
+    .copyCell .annotationContent .latexChildCell {
+      margin-top: 10px;
+      min-height: 30px; }
+      .copyCell .annotationContent .latexChildCell * {
+        pointer-events: none; }
+  .copyCell .annotation:focus {
+    background-color: white; }
+
+.controlPannel {
+  position: absolute;
+  top: 20px;
+  z-index: 100; }
+
+.canvasContainer {
+  position: relative;
+  max-height: 92vh;
+  overflow-y: scroll;
+  width: 100%; }
+  .canvasContainer canvas {
+    display: block;
+    margin-bottom: 10px; }
+  .canvasContainer .textLayer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    /* opacity: 0.1; */
+    line-height: 1.0;
+    /* background: rgba(1, 1, 1, 0.2) */ }
+  .canvasContainer .textLayer > div {
+    color: transparent;
+    position: absolute;
+    white-space: pre;
+    cursor: text;
+    transform-origin: 0% 0%; }
+
+.line {
+  height: 20px;
+  width: 100%;
+  position: absolute;
+  z-index: 100; }
+
+/*# sourceMappingURL=pdfNote.css.map */
